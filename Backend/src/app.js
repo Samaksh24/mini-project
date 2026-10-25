@@ -1,4 +1,5 @@
 import express from "express"
+import cors from 'cors'
 import authRoutes from './routes/authRoutes.js'
 import cookieParser from 'cookie-parser'
 import imageroutes from './routes/imageroutes.js'
@@ -6,6 +7,11 @@ import complaintRoutes from './routes/complaintRoutes.js'
 
 
 const app=express();
+
+app.use(cors({
+  origin: "https://mini-project-frontend-03zy.onrender.com",
+  credentials: true
+}));
 
 
 app.use(express.json());
