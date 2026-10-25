@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-display: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --color-concrete: #f6f9ff;
+  --color-slab: #ffffff;
+  --color-ink: #172b4d;
+  --color-mute: #64748b;
+  --color-line: #e2eaf5;
+  --color-survey: #2463eb;
+  --color-survey-dark: #1749bd;
+  --color-paint: #dbeafe;
+  --color-crit: #dc2626;
+  --color-high: #ea580c;
+  --color-med: #ca8a04;
+  --color-low: #15803d;
+}
+
+:root { font-family: var(--font-sans); color: #172b4d; background: #f6f9ff; font-synthesis: none; text-rendering: optimizeLegibility; }
+html { min-width: 320px; scroll-behavior: smooth; background: #f6f9ff; }
+body { margin: 0; min-width: 320px; min-height: 100vh; color: #172b4d; background: #f6f9ff; -webkit-font-smoothing: antialiased; }
+button, input, select, textarea { font: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+:focus-visible { outline: 3px solid #60a5fa; outline-offset: 3px; }
+
+/* Shared CivicFix design system */
+.cf-page { width: min(1160px, calc(100% - 40px)); margin-inline: auto; }
+.cf-card { border: 1px solid #e4ebf5; border-radius: 20px; background: #fff; box-shadow: 0 8px 28px rgba(27, 67, 130, .045); }
+.cf-eyebrow { display: inline-flex; align-items: center; gap: 8px; border: 1px solid #dbeafe; border-radius: 999px; background: #eff6ff; color: #2459bf; padding: 7px 12px; font-size: 12px; font-weight: 750; letter-spacing: .035em; }
+.cf-primary { display: inline-flex; align-items: center; justify-content: center; gap: 9px; border: 1px solid #2463eb; border-radius: 12px; background: #2463eb; color: white; padding: 12px 17px; font-weight: 700; text-decoration: none; transition: transform .18s ease, background .18s ease, box-shadow .18s ease; box-shadow: 0 7px 16px rgba(36,99,235,.16); }
+.cf-primary:hover { background: #1749bd; transform: translateY(-1px); }
+.cf-secondary { display: inline-flex; align-items: center; justify-content: center; gap: 9px; border: 1px solid #dbe5f3; border-radius: 12px; background: #fff; color: #25436f; padding: 12px 17px; font-weight: 700; text-decoration: none; transition: background .18s ease; }
+.cf-secondary:hover { background: #f4f8ff; }
+.cf-muted { color: #64748b; }
+.cf-grid-dots { background-image: radial-gradient(#d9e6fa 1px, transparent 1px); background-size: 18px 18px; }
+.skeleton { background: linear-gradient(90deg, #e9eff8 25%, #f5f8fc 50%, #e9eff8 75%); background-size: 200% 100%; animation: shimmer 1.4s linear infinite; }
+@keyframes shimmer { to { background-position: -200% 0; } }
+@keyframes pop { from { transform: translateY(6px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+.pop { animation: pop .28s ease-out; }
+@media (max-width: 640px) { .cf-page { width: min(100% - 28px, 1160px); } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+
+/* Responsive guardrails shared across all citizen-facing pages */
+#main { min-width: 0; }
+#main img { max-width: 100%; }
+#main h1 { overflow-wrap: anywhere; }
+#main input, #main select, #main textarea { min-width: 0; max-width: 100%; }
+@media (max-width: 640px) {
+  #main { font-size: 15px; }
+  #main h1 { letter-spacing: -.035em; }
+  #main button, #main a { touch-action: manipulation; }
+}
